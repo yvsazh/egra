@@ -1,0 +1,216 @@
+p {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.project-scene {
+    background: rgb(137, 137, 137);
+}
+
+.sidebar {
+    float:right;
+    zoom: 80%;
+}
+
+.sidebar-block {
+    padding: 20px;
+    margin: 20px;
+    background: rgb(52, 52, 52);
+    max-width:200px;
+}
+
+.popFunc {
+    padding: 20px 10px;
+    background: black;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    display:block;
+    text-align:center;
+    margin-top: 7px;
+}
+
+.popFunc:hover {
+    background-color: rgb(69, 69, 69);
+}
+
+.info-block {
+    border-bottom: 1px solid white;
+    display: flex;
+}
+
+.graph-button {
+    color: rgba(255, 255, 255, 0.691);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    width: 80%;
+    display:block;
+    margin-top: 5px;
+}
+
+.graph-button:hover {
+    color:white;
+}
+
+.graph-button.active:hover {
+    color:rgb(255, 0, 0, 1);
+}
+
+.remove-graph-button {
+    color: red;
+    text-decoration: none;
+    display:block;
+    border: 1px solid red;
+    width: 20%;
+    align-self:center;
+    text-align:center;
+    margin: 0;
+    font-weight:bold;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.remove-graph-button:hover {
+    color:white;
+    background: red;
+}
+
+.active {
+    color: rgb(255, 0, 0, 0.5);
+}
+
+.modal {
+    position: fixed;
+    background: rgb(30, 30, 30);
+    border: 1px solid white;
+    width: 700px;
+    height: 300px;
+
+
+    bottom: 10px;
+    right: 10px;
+
+    display:none;
+}
+
+.modal > .header{
+    border-bottom: 1px solid white;
+    padding: 15px;
+    background:rgb(150, 150, 150);
+}
+
+.modal > .header:hover {
+    cursor:move;
+}
+
+.modal > .settings {
+    padding: 15px;
+    zoom: 90%;
+}
+
+.settings-input {
+    max-width: 100px;
+    font-size: 40px;
+    text-align:center;
+    background-color:transparent;
+    border:none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.header-input {
+    width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align:center;
+    background-color:transparent;
+    border:none;
+    border-bottom: 1px solid black;
+    color: black;    
+}
+
+.settings-input-small {
+    max-width: 40px;
+    font-size: 20px;
+    text-align:center;
+    background-color:transparent;
+    border:none;
+    border-bottom: 1px solid white;
+    color: white;
+    position:absolute;
+    right: 345px;
+}
+
+.settings-apply-button {
+    color: white;
+    text-decoration: none;
+    font-size: 35px;
+    background: black;
+    padding: 10px 20px;
+    border: 1px solid white;
+}
+
+.settings-apply-button:hover {
+    color: white;
+    background:rgb(69, 69, 69);
+}
+
+.settings-select {
+    max-width: 100px;
+    font-size: 35px;
+    text-align:center;
+    background-color:black;
+    border:none;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.close-modal {
+    color: rgb(173, 0, 0);
+    text-decoration: none;
+    display:block;
+    border: 1px solid rgb(173, 0, 0);
+    width: 20%;
+    align-self:center;
+    text-align:center;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+.close-modal:hover {
+    color:white;
+    background: red;
+}
+
+.save {
+    width:100%;
+}
+
+.standart-input {
+    width: 100%;
+    display:block;
+    margin-bottom: 10px;
+    font-size: 20px;
+    background: black;
+    color:white;
+    padding: 3px;
+    border: 1px solid white;
+}
+
+
+.small-button {
+    color: rgb(255, 42, 42);
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    text-align:center;
+}
+
+.small-button:hover {
+    text-decoration: underline;
+}

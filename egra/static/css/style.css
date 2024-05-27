@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    background-color: rgb(10, 10, 10);
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    background: rgb(22, 22, 22);
+    align-items: center;
+}
+
+.menu > .inner-menu > .menu-link {
+    color: rgb(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: .2s;
+    padding: 0px 10px;
+}
+
+.menu > .inner-menu > .menu-link:hover {
+    color: rgb(255, 255, 255, 1);
+    transition: .2s;
+}
+
+.block {
+    position: relative;
+}
+
+.block-background canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.block-content { 
+    width:70%;
+    margin: 0 auto;
+}
+
+.inner-content {
+    padding-top: 30%;
+}
+
+.main-button {
+    color: white;
+    border: 1px solid white;
+    padding: 2px 20px;
+    text-decoration: none;
+    transition: .5s;
+    background-color: transparent;
+    cursor:pointer;
+    font-size: 30px;
+}
+
+.main-button:hover {
+    color: black;
+    border: 1px solid black;
+    background: white;
+    transition: .5s;
+}
+
+.main-form {
+    width: 400px;
+    height: 400px;
+    border: 1px solid white;
+    background: rgb(21, 21, 21);
+    padding: 40px;
+    display:flex;
+    align-items: center;
+}
+
+.main-form > .inner-form > p {
+    text-align:left;
+    font-size: 20px;
+}
+
+.main-form > .inner-form > input{
+    width: 105%;
+    display:block;
+    margin-bottom: 10px;
+    font-size: 30px;
+    background: black;
+    color:white;
+    border: 1px solid white;
+}
+
+h1 {
+    color: white;
+}
+
+.projects {
+    color: white;
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.project {
+    width: 30%;
+    border: 1px solid rgb(255, 255, 255);
+    background: rgb(28, 28, 28);
+    height: 300px;
+}
+
+.project > .preview {
+    height: 60%;
+    width:100%;
+    background-size: cover;
+}
+
+.project > .info {
+    padding: 17px;
+}
+
+.project > .info > a {
+    color: white;
+    display: block;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.project > .info > a:hover {
+    text-decoration: underline;
+}

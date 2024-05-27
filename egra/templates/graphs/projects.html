@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}EGRA - Projects{% endblock %}
+
+{% block content %}
+
+
+        <div class="block please-login-to-create-projects">
+            <div class="block-background">
+                <canvas id="please-login-to-create-projects"></canvas>
+            </div>	
+            <div class="block-content">
+                
+                    {% if user.is_authenticated %}
+                        <br>
+                        <br>
+                        <h1>Your projects: </h1>
+                        <br>
+                        <hr>
+                        <br>
+                        <div class="projects">
+                            {% if projects %}
+
+                                {% for project in projects %}
+                                    <div class="project">
+                                        <div class="preview" style="background-image: url('{{ project.preview.url }}')">
+        
+                                        </div>
+                                        <br>
+                                        <hr>
+                                        <div class="info">
+                                            <a href="{% url 'graphs:project' project.id %}">{{project.name|truncatechars_html:40}}</a>
+                                            <em>{{project.creation_date}}</em>
+                                        </div>
+                                    </div>                                
+                                {% endfor %}
+
+                            {% else %}
+                                    <p>You haven't created any projects yet.</p>
+                            {% endif %}
+
+
+                        </div>
+                        <br>
+                        <br>
+                        <a style="display: block; width: 300px; text-align:center;" class="main-button" href="{% url 'graphs:create_project' %}" class="new-project">Create new project</a>
+
+
+                    {% else %}
+                    <center class="inner-content">
+                        <p style="font-size: 35px;" class="wow animate__animated animate__fadeInUp">You have to <b>login</b> to create projects</p>  
+                        <br>
+                        <hr>
+                        <br>
+                        <p style="font-size:30px;" class="wow animate__animated animate__fadeInUp" data-wow-delay=".5s">
+                            <a class="main-button wow animate__animated animate__fadeInUp" href="{% url 'login'%}?next={{request.path}}" data-wow-delay=".3s">Log in</a>
+                            or
+                            <a class="main-button wow animate__animated animate__fadeInUp" href="{% url 'account:register'%}" data-wow-delay=".9s">Sign up</a>
+                        </p>
+                    </center> 
+                    {% endif %}
+                            
+            </div>		
+        </div>
+        <script src="{% static 'js/ui/please-login-to-create-projects.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+    
+    <center style="margin-top: 150px;">
+        <h1>Create an account</h1>
+        <br>
+        <br>
+        <form class="main-form animate__animated animate__fadeInUp" action="{% url 'account:register' %}?next={% url 'graphs:projects' %}" method="post">
+            {% csrf_token %}
+            <div class="inner-form">
+            <p>{{ user_form.username.label_tag }}</p>
+                {{ user_form.username }}
+
+                <p>{{ user_form.first_name.label_tag }}</p>
+                {{ user_form.first_name }}
+
+                <p>{{ user_form.email.label_tag }}</p>
+                {{ user_form.email }}
+
+                <p>{{ user_form.password.label_tag }}</p>
+                {{ user_form.password }}
+
+                <p>{{ user_form.password2.label_tag }}</p>
+                {{ user_form.password2 }}
+                <input class="main-button" style="display:block;" type="submit" value="Sign up" />
+            </div>
+        </form>
+    </center>
+{% endblock %}

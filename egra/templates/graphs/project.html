@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{project.name}}{% endblock %}
+
+{% block content %}
+
+    {% if request.user != project.user %}
+        <style>
+            .saving {
+                display: none;
+            }
+            .remove-graph-button {
+                display: none;
+            }
+        </style>
+        <script>
+            $(document).ready(function() {
+                $(".settings-input").attr("readonly", "true");
+                $(".header-input").attr("readonly", "true");
+                $(".settings-input-small").attr("readonly", "true");
+                $(".settings-select").attr("disabled", "true");
+            });
+        </script>
+    {% endif %}
+    <div class="sidebar">
+        <div class="sidebar-block project-settings">
+            {% if request.user == project.user %}
+            <form method = "POST" action="{% url 'graphs:edit_project' project.id %}">
+                {% csrf_token %}
+                <input type="text" name="project_name" id="saving-project_name" class="standart-input" value="{{project.name}}">
+                <button class="popFunc" style="width:100%;" type="sumbit">Apply changes</button>
+            </form>
+            {% else %}
+                <p>Project name: {{project.name}}</p>
+            {% endif %}
+        </div>
+        {% if request.user == project.user %}
+        <div class="sidebar-block mostPopularFunctions">
+            <a class="popFunc" href="#" id="custom">Add Custom Graph</a>
+            <br>
+            <hr>
+            <br>
+            <a class="popFunc" href="#" id="parabola">Add Parabola Graph</a>
+            <a class="popFunc" href="#" id="yx">Add y = x Graph</a>
+            <a class="popFunc" href="#" id="sinGraph">Add Sin Graph</a>
+            <a class="popFunc" href="#" id="cosGraph">Add Cos Graph</a>
+            <a class="popFunc" href="#" id="hyperbolaGraph">Add Hyperbola Graph</a>
+        </div>
+        {% endif %}
+        <div class="sidebar-block graphs">
+            <p id="your-graphs-here">Your graphs here</p>
+        </div>  
+        <div class="sidebar-block dotInformation">
+            <p style="font-weight: bold;" id="dot-information-here">Dot information here</p>
+        </div>
+        
+        <div class="sidebar-block saving">
+            <form method = "POST" action="{% url 'graphs:save_project' project.id %}">
+                {% csrf_token %}
+                <input type="text" name="saved_data" id="saving-area" style="display:none;" value="{{project.data}}">
+                
+                <input type="text" name="new_preview" id="preview" style="display:none;" value="{{project.preview.url}}">
+                {% if request.user == project.user %}
+                <button class="popFunc save" type="sumbit">Save project</button>
+                {% endif %}
+            </form>
+        </div>
+        {% if request.user == project.user %}
+        <div class="sidebar-block deleting_project">
+            <a class="popFunc delete_project-in" style="width: auto; background: red; font-weight: bold;" href="#">Delete Project</a>
+            <div class="are_you_sure" style="display: none;">
+                <p>Are you sure that you want to delete your project?</p>
+                <a class="popFunc delete_project-back" style="width: auto; background: green; font-weight: bold;" href="#">NO, I AM NOT</a>
+                <br>
+                <hr>
+                <br>
+                <a class="small-button" href="{% url 'graphs:delete_project' project.id %}">Yes, I am sure</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+
+    <div class="modal-windows">
+ 
+    </div>
+
+    <script src="{% static 'js/elements/dot.js' %}"></script>
+    <script src="{% static 'js/elements/graph.js' %}"></script>
+
+    <script src="{% static 'js/interface_handler.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %}
